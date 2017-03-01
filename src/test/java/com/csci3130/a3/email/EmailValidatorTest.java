@@ -15,26 +15,31 @@ public class EmailValidatorTest {
 
 	@Test
 	public void testNotEmail() {
-		assertEquals(1, validator.validate("google.com"));
+		assertEquals(2, validator.validate("google.com"));
 	}
 
 	@Test
 	public void testSimpleEmailValid() {
-		assertEquals(2, validator.validate("mine-fds.123_egewfdsh@example.cs.com"));
+		assertEquals(3, validator.validate("mine-fds.123_egewfdsh@example.cs.com"));
 	}
 
 	@Test
 	public void testComplexEmailInvalid() {
-		assertEquals(2, validator.validate("mine-fds.123_egew+fdsh@dal.ca"));
+		assertEquals(3, validator.validate("mine-fds.123_egew+fdsh@dal.ca"));
 	}
 
 	@Test
 	public void testDupAt() {
-		assertEquals(1, validator.validate("something.r@gm@dal.ca"));
+		assertEquals(2, validator.validate("something.r@gm@dal.ca"));
 	}
 
 	@Test
 	public void testInvalidEmail() {
-		assertEquals(0, validator.validate("-"));
+		assertEquals(1, validator.validate("-"));
+	}
+
+	@Test
+	public void testEmpty() {
+		assertEquals(0, validator.validate(""));
 	}
 }
