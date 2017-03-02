@@ -4,5 +4,5 @@ public interface EmailValidation {
 	/**
 	 * @param email String containing email to validate
 	 */
-	public int validate(String email);
+	public void validate(String email) throws EmailValidationException;
 }
